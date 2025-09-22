@@ -3,7 +3,7 @@
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
 
-// Route links per dag
+// Route links per dag - DIT IS CRUCIAAL!
 const routeLinks = {
     'donderdag-2-oktober': 'https://www.google.com/maps/dir/Brussels+South+Charleroi+Airport,+Charleroi/Ibis+Praha+Old+Town,+Prague/Karl%C3%ADn,+Prague',
     'vrijdag-3-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Baja+Bikes+Prague+Old+Town/U+Medv%C3%ADdk%C5%AF,+Prague/Troja+Castle,+Prague/Jazz+Dock,+Prague',
@@ -11,7 +11,7 @@ const routeLinks = {
     'zondag-5-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Jewish+Quarter,+Prague/Old+Town+Square,+Prague/V%C3%A1clav+Havel+Airport+Prague'
 };
 
-// Attractie details database - ZONDER ticket info + Strahov toegevoegd
+// Attractie details database
 const attractionDetails = {
   'praagse-burcht': {
     title: 'Praagse Burcht & Sint-Vituskathedraal',
@@ -156,7 +156,7 @@ async function loadItinerary() {
     }
 }
 
-// TOEGEVOEGDE FUNCTIE - Dit ontbrak in je script!
+// CRUCIALE FUNCTIE - Route sectie maken
 function createRouteSection(dayKey, dayName) {
     const dayNumber = dayKey.split('-')[1];
     const dayMonth = dayKey.split('-')[2];
@@ -172,7 +172,7 @@ function createRouteSection(dayKey, dayName) {
     `;
 }
 
-// SAMENGEVOEGDE event rendering - notes + facts in 1 blok
+// Event rendering - samengevoegde notes + facts
 function renderEvent(event) {
     const links = [];
     
