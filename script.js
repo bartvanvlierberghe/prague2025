@@ -1,4 +1,4 @@
-// script.js - Uitgebreide versie met CZK converter en attractie details
+// script.js - Layout gefixte versie
 
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
@@ -51,40 +51,35 @@ Pinkas Synagoge bevat het indringende Holocaust Memorial met 80.000 namen van Ts
   }
 };
 
-// Route informatie per dag
+// Route informatie per dag - ZONDER hoogtepunten
 const routeData = {
   'donderdag-2-oktober': {
     totalDistance: '12 km',
     walkingTime: '2,5 uur',
-    transportTime: '1 uur',
-    highlights: ['Luchthaven → Hotel (25 min transfer)', 'Hotel → Karlín wijk (15 min lopen)', 'Avondwandeling oude stad (45 min)']
+    transportTime: '1 uur'
   },
   'vrijdag-3-oktober': {
     totalDistance: '15 km',
     walkingTime: '3 uur',
-    transportTime: '45 min',
-    highlights: ['Fietstour Oude Stad (3 uur, 12 km)', 'Tram naar Troja (20 min)', 'Wandeling Troja tuinen (30 min)']
+    transportTime: '45 min'
   },
   'zaterdag-4-oktober': {
     totalDistance: '18 km',
     walkingTime: '4,5 uur',
-    transportTime: '1 uur',
-    highlights: ['Praagse Burcht wandeling (2 uur)', 'Strahov Klooster → Petřín (45 min)', 'Oude Stad verkenning (1,5 uur)']
+    transportTime: '1 uur'
   },
   'zondag-5-oktober': {
     totalDistance: '8 km',
     walkingTime: '2 uur',
-    transportTime: '45 min',
-    highlights: ['Joodse wijk tour (1,5 uur)', 'Oude Stadsplein lunch (30 min)', 'Vrije tijd wandeling (1 uur)']
+    transportTime: '45 min'
   }
 };
 
-// Initialize currency converter - met error handling
+// Initialize currency converter
 function initCurrencyConverter() {
     const czkInput = document.getElementById('czk-input');
     const eurInput = document.getElementById('eur-input');
 
-    // Check of elementen bestaan
     if (!czkInput || !eurInput) {
         console.warn('Currency converter elementen niet gevonden in HTML');
         return;
@@ -165,14 +160,15 @@ async function loadItinerary() {
     }
 }
 
-function createRouteMap(dayKey) {
+// FIXED: Kleine kaart zonder hoogtepunten
+function createRouteSection(dayKey) {
     const route = routeData[dayKey];
     if (!route) return '';
 
     return `
-        <div class="route-map">
-            <h3>📍 Route overzicht</h3>
-            <div class="route-info">
+        <div class="route-section">
+            <h3>🗺️ Route & Afstanden</h3>
+            <div class="route-stats">
                 <div class="route-stat">
                     <strong>${route.totalDistance}</strong>
                     <span>Totale afstand</span>
@@ -186,12 +182,55 @@ function createRouteMap(dayKey) {
                     <span>Reistijd</span>
                 </div>
             </div>
-            <div class="mini-map">
-                <div style="text-align: center;">
-                    <strong style="color: var(--accent);">Hoogtepunten:</strong><br>
-                    ${route.highlights.map(highlight => `• ${highlight}`).join('<br>')}
+            <div class="route-map">
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <div>Dagelijkse route ${dayKey.split('-')[1]} ${dayKey.split('-')[2]}</div>
+                    <div style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--muted);">
+                        Interactieve kaart wordt binnenkort toegevoegd
+                    </div>
                 </div>
             </div>
+        </div>
+    `;
+}
+
+// FIXED: Betere event rendering met zichtbare links
+function renderEvent(event) {
+    let linksHtml = '';
+    const links = [];
+
+    // Attractie link
+    if (event.attractionKey) {
+        links.push(`<div class="attraction-link" onclick="showAttractionDetails('${event.attractionKey}')">📍 Meer info over deze attractie</div>`);
+    }
+
+    // Google Maps link
+    if (event.mapsUrl) {
+        links.push(`<a href="${event.mapsUrl}" target="_blank" class="maps-link">📍 Google Maps</a>`);
+    }
+
+    // Website link  
+    if (event.siteUrl) {
+        links.push(`<a href="${event.siteUrl}" target="_blank" class="website-link">🔗 Website</a>`);
+    }
+
+    if (links.length > 0) {
+        linksHtml = `<div class="event-links">${links.join('')}</div>`;
+    }
+
+    return `
+        <div class="event">
+            <div class="event-time">${event.time}</div>
+            <div class="event-title">${event.title}</div>
+            ${event.desc ? `<div class="event-description">${event.desc}</div>` : ''}
+            ${event.notes ? `<div class="event-notes">${event.notes.replace(/\n/g, '<br>')}</div>` : ''}
+            ${event.facts ? `
+                <div class="event-facts">
+                    ${event.facts.map(fact => `<div class="fact">${fact}</div>`).join('')}
+                </div>
+            ` : ''}
+            ${linksHtml}
         </div>
     `;
 }
@@ -210,40 +249,19 @@ function renderDay(day, isActive) {
                 ` : ''}
             </div>
 
-            ${createRouteMap(dayKey)}
+            ${createRouteSection(dayKey)}
 
-            <div class="events-timeline">
-                ${day.events.map(event => `
-                    <div class="event">
-                        <div class="event-time">${event.time}</div>
-                        <div class="event-title">${event.title}</div>
-                        ${event.desc ? `<div class="event-description">${event.desc}</div>` : ''}
-                        ${event.notes ? `<div class="event-notes">${event.notes.replace(/\n/g, '<br>')}</div>` : ''}
-                        ${event.facts ? `
-                            <div class="event-facts">
-                                ${event.facts.map(fact => `<div class="fact">${fact}</div>`).join('')}
-                            </div>
-                        ` : ''}
-                        ${event.attractionKey ? `
-                            <div class="attraction-link" onclick="showAttractionDetails('${event.attractionKey}')">
-                                📍 Meer info over deze attractie
-                            </div>
-                        ` : ''}
-                        ${event.siteUrl ? `
-                            <div style="margin-top: 0.5rem;">
-                                <a href="${event.siteUrl}" target="_blank" style="color: var(--accent);">
-                                    🔗 Website bezoeken
-                                </a>
-                            </div>
-                        ` : ''}
-                    </div>
-                `).join('')}
+            <div class="activities-section">
+                <h3>📅 Dagprogramma</h3>
+                <div class="events-timeline">
+                    ${day.events.map(event => renderEvent(event)).join('')}
+                </div>
             </div>
         </div>
     `;
 }
 
-// Initialize everything - wacht tot DOM volledig geladen is
+// Initialize everything
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM content loaded, initializing app...');
 
@@ -267,16 +285,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                 ${day.name.split(' ')[0]} ${day.name.split(' ')[1]}
             </button>`
         ).join('');
-    } else {
-        console.warn('day-nav element niet gevonden');
     }
 
     // Create content
     const content = document.getElementById('content');
     if (content) {
         content.innerHTML = days.map((day, index) => renderDay(day, index === 0)).join('');
-    } else {
-        console.warn('content element niet gevonden');
     }
 
     // Add navigation listeners
@@ -304,8 +318,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = 'none';
         };
-    } else {
-        console.warn('Modal elementen niet gevonden');
     }
 
     console.log('App initialization completed');
