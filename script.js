@@ -1,4 +1,4 @@
-// script.js - Compact Modern Version (corrected) v8
+// script.js - Compact Modern Version (met mini-kaart)
 
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
@@ -25,7 +25,6 @@ De Sint-Vituskathedraal, het spirituele hart van Tsjechië, werd begonnen in 134
 Het kasteel heeft verschillende circuits - van de Old Royal Palace tot de Golden Lane waar Franz Kafka ooit woonde. De tuinen bieden prachtige uitzichten over de stad.`,
     funFact: `De beroemde glas-in-lood ramen van Alfons Mucha in de kathedraal werden pas in 1931 voltooid - meer dan 20 jaar na Art Nouveau's hoogtijdperk. Mucha werkte er 6 jaar aan en weigerde betaling, omdat hij het als zijn "geschenk aan de natie" beschouwde.`
   },
-
   'troja-kasteel': {
     title: 'Troja Kasteel',
     subtitle: 'Barok juweel met spectaculaire tuintrap',
@@ -38,7 +37,6 @@ Het kasteel is gebouwd in vroeg-barokke stijl met invloeden uit de Franse en Ita
 Beste fototijd is in de late namiddag wanneer de zon de rode bakstenen gevel prachtig belicht. In de zomer zijn er regelmatig klassieke concerten in de tuinen.`,
     funFact: `De monumentale buitentrap is versierd met 28 sculpturen van Georg en Paul Heermann uit Dresden, die de strijd tussen goden en titanen uitbeelden. De centrale as van de tuin wijst precies naar de torens van de Sint-Vituskathedraal in de Praagse Burcht - een bewuste symbolische verbinding tussen kerk en staat.`
   },
-
   'joodse-wijk': {
     title: 'Joodse Wijk (Josefov)',
     subtitle: 'Europa\'s best bewaarde historische Joodse wijk',
@@ -51,7 +49,6 @@ De Oude Joodse Begraafplaats (15e-18e eeuw) is een van de oudst overlevende Jood
 Franz Kafka's geboortehuis staat op slechts 300 meter van de Oude Joodse Begraafplaats. Respecteer de ernst van deze historische plek en vermijd luidruchtig gedrag.`,
     funFact: `Het graf van Rabbi Löw, de legendarische schepper van de Golem, is het meest bezochte graf op de begraafplaats. Bezoekers leggen traditioneel steentjes neer voor geluk. De legende zegt dat de Golem nog steeds verborgen ligt op de zolder van de Oude-Nieuwe Synagoge.`
   },
-
   'strahov-klooster': {
     title: 'Strahovský Klášter',
     subtitle: 'Premonstratenzerklooster met wereldberoemde bibliotheek',
@@ -66,7 +63,40 @@ De basiliek bevat het orgel waar Mozart speelde tijdens zijn bezoek in 1787. Ver
   }
 };
 
-// Normaliseer dagnaam naar een stabiele key (voorkomt spatie/diacritics issues)
+// Bekende stops (approx. coords) voor mini-kaarten
+const placeCoords = {
+  // Donderdag
+  ibis:       [50.08964, 14.43131],
+  karlin:     [50.09160, 14.45340],
+
+  // Vrijdag
+  bajabikes:  [50.08855, 14.42070],
+  umedvidku:  [50.08360, 14.42080],
+  troja:      [50.11610, 14.41410],
+  jazzdock:   [50.07650, 14.40970],
+
+  // Zaterdag
+  castle:     [50.09000, 14.40030],
+  strahov:    [50.08610, 14.38790],
+  petrin:     [50.08370, 14.39590],
+  pilsnerexp: [50.08530, 14.42780],
+  upavouka:   [50.08760, 14.42110],
+
+  // Zondag
+  jewish:     [50.09090, 14.42080],
+  oldtown:    [50.08700, 14.42000],
+  airport:    [50.10620, 14.26690]
+};
+
+// Route-stops per dag in volgorde (mini-kaart polyline)
+const routeStops = {
+  'donderdag-2-oktober': ['ibis', 'karlin'],
+  'vrijdag-3-oktober':   ['bajabikes', 'umedvidku', 'troja', 'jazzdock'],
+  'zaterdag-4-oktober':  ['castle', 'strahov', 'petrin', 'pilsnerexp', 'upavouka'],
+  'zondag-5-oktober':    ['jewish', 'oldtown', 'airport']
+};
+
+// Dagnaam → stabiele key (voorkomt spaties/diacritics issues)
 function toKey(name) {
   return name
     .normalize('NFKD')
@@ -154,16 +184,45 @@ async function loadItinerary() {
   }
 }
 
-// Route sectie (gebruikt routeLinks + debug log)
+// Mini-kaart renderer (Leaflet)
+function renderMiniMap(containerId, stopKeys) {
+  if (!window.L) return; // Leaflet niet geladen (failsafe)
+
+  const coords = (stopKeys || [])
+    .map(k => placeCoords[k])
+    .filter(Array.isArray);
+
+  const map = L.map(containerId, { zoomControl: false }); // attribution aan laten i.v.m. OSM licentie
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 })
+    .addTo(map);
+
+  if (coords.length === 0) {
+    map.setView([50.087, 14.421], 13); // centrum Praag
+    return;
+  }
+
+  const group = L.featureGroup();
+  coords.forEach((latlng, idx) => {
+    L.marker(latlng, { title: `Stop ${idx + 1}` }).addTo(group);
+  });
+
+  if (coords.length >= 2) {
+    L.polyline(coords, { color: '#10b981', weight: 4, opacity: 0.9 }).addTo(group);
+  }
+
+  group.addTo(map);
+  map.fitBounds(group.getBounds(), { padding: [12, 12] });
+}
+
+// Route sectie (mini-kaart + externe link)
 function createRouteSection(dayKey) {
   const link = routeLinks[dayKey] || 'https://www.google.com/maps';
-  console.log('Route debug', { dayKey, link });
   return `
     <div class="route-section">
       <h3>🗺️ Dagelijkse Route</h3>
-      <a href="${link}" target="_blank" class="route-map-link">
-        📍 Bekijk route op kaart
-      </a>
+      <div class="mini-map" id="${dayKey}-map"></div>
+      <a href="${link}" target="_blank" class="route-map-link">📍 Bekijk volledige route</a>
     </div>
   `;
 }
@@ -228,8 +287,8 @@ function renderDay(day, isActive) {
         ${day.photos ? `
           <div class="day-photos">
             ${day.photos.map(photo => `<img src="${photo}" alt="${day.name}" class="day-photo">`).join('')}
-          </div>` : ''
-        }
+          </div>
+        ` : ''}
       </div>
 
       ${createRouteSection(dayKey)}
@@ -251,6 +310,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const days = await loadItinerary();
   if (!days.length) return;
 
+  // Navigatie
   const dayNav = document.getElementById('day-nav');
   if (dayNav) {
     dayNav.innerHTML = days.map((day, index) =>
@@ -260,29 +320,47 @@ document.addEventListener('DOMContentLoaded', async function () {
     ).join('');
   }
 
+  // Content
   const content = document.getElementById('content');
   if (content) {
     content.innerHTML = days.map((day, index) => renderDay(day, index === 0)).join('');
   }
 
+  // Mini-kaart initialiseren voor de eerste zichtbare dag
+  const firstKey = toKey(days[0].name);
+  const firstMapId = `${firstKey}-map`;
+  const firstStops = routeStops[firstKey] || [];
+  // Render kaart pas als element in DOM staat
+  setTimeout(() => renderMiniMap(firstMapId, firstStops), 0);
+
+  // Navigatie-klik
   document.querySelectorAll('.day-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       const dayIndex = parseInt(this.dataset.day, 10);
+
+      // Buttons
       document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+
+      // Cards
       document.querySelectorAll('.day-card').forEach((card, i) => {
         card.style.display = i === dayIndex ? 'block' : 'none';
       });
+
+      // Mini-kaart voor de getoonde dag (nieuw renderen bij tonen voorkomt sizing-issues)
+      const dk = toKey(days[dayIndex].name);
+      const mid = `${dk}-map`;
+      const stops = routeStops[dk] || [];
+      // Render opnieuw voor zekerheid (lichte component)
+      setTimeout(() => renderMiniMap(mid, stops), 0);
     });
   });
 
+  // Modal sluiten
   const modal = document.getElementById('attraction-modal');
   const closeBtn = document.querySelector('.close');
   if (modal && closeBtn) {
-    closeBtn.onclick = () => modal.style.display = 'none';
+    closeBtn.onclick = () => (modal.style.display = 'none');
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
-
-
-
