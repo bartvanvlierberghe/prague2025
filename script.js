@@ -3,6 +3,14 @@
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
 
+// Route links per dag
+const routeLinks = {
+    'donderdag-2-oktober': 'https://www.google.com/maps/dir/Brussels+South+Charleroi+Airport,+Charleroi/Ibis+Praha+Old+Town,+Prague/Karl%C3%ADn,+Prague',
+    'vrijdag-3-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Baja+Bikes+Prague+Old+Town/U+Medv%C3%ADdk%C5%AF,+Prague/Troja+Castle,+Prague/Jazz+Dock,+Prague',
+    'zaterdag-4-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Prague+Castle/Strahov+Monastery,+Prague/Petrin+Tower,+Prague/Pilsner+Urquell+Experience,+Prague/U+Pavouka,+Prague',
+    'zondag-5-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Jewish+Quarter,+Prague/Old+Town+Square,+Prague/V%C3%A1clav+Havel+Airport+Prague'
+};
+
 // Attractie details database - ZONDER ticket info + Strahov toegevoegd
 const attractionDetails = {
   'praagse-burcht': {
@@ -50,7 +58,6 @@ Franz Kafka's geboortehuis staat op slechts 300 meter van de Oude Joodse Begraaf
     funFact: `Het graf van Rabbi Löw, de legendarische schepper van de Golem, is het meest bezochte graf op de begraafplaats. Bezoekers leggen traditioneel steentjes neer voor geluk. De legende zegt dat de Golem nog steeds verborgen ligt op de zolder van de Oude-Nieuwe Synagoge.`
   },
 
-  // NIEUWE attractie toegevoegd
   'strahov-klooster': {
     title: 'Strahovský Klášter',
     subtitle: 'Premonstratenzerklooster met wereldberoemde bibliotheek',
@@ -149,16 +156,8 @@ async function loadItinerary() {
     }
 }
 
-// VEREENVOUDIGDE route section - alleen map link
+// TOEGEVOEGDE FUNCTIE - Dit ontbrak in je script!
 function createRouteSection(dayKey, dayName) {
-    // Definieer de route links BINNEN de functie
-    const routeLinks = {
-        'donderdag-2-oktober': 'https://www.google.com/maps/dir/Brussels+South+Charleroi+Airport,+Charleroi/Ibis+Praha+Old+Town,+Prague/Karl%C3%ADn,+Prague',
-        'vrijdag-3-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Baja+Bikes+Prague+Old+Town/U+Medv%C3%ADdk%C5%AF,+Prague/Troja+Castle,+Prague/Jazz+Dock,+Prague',
-        'zaterdag-4-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Prague+Castle/Strahov+Monastery,+Prague/Petrin+Tower,+Prague/Pilsner+Urquell+Experience,+Prague/U+Pavouka,+Prague',
-        'zondag-5-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Jewish+Quarter,+Prague/Old+Town+Square,+Prague/V%C3%A1clav+Havel+Airport+Prague'
-    };
-    
     const dayNumber = dayKey.split('-')[1];
     const dayMonth = dayKey.split('-')[2];
     const link = routeLinks[dayKey] || 'https://www.google.com/maps';
@@ -172,7 +171,6 @@ function createRouteSection(dayKey, dayName) {
         </div>
     `;
 }
-
 
 // SAMENGEVOEGDE event rendering - notes + facts in 1 blok
 function renderEvent(event) {
@@ -325,7 +323,3 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('✨ Compact Prague app ready!');
 });
-
-
-
-
