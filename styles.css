@@ -1,4 +1,4 @@
-/* styles.css - Modern Card Design */
+/* styles.css - Compact Modern Design */
 
 :root {
     --bg: #0f172a;
@@ -8,9 +8,8 @@
     --text: #e2e8f0;
     --accent: #06b6d4;
     --accent-2: #10b981;
-    --accent-3: #f59e0b;
     --border: #334155;
-    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow: rgba(0, 0, 0, 0.2);
     --gradient: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
 }
 
@@ -24,7 +23,7 @@ html, body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 a {
@@ -37,7 +36,7 @@ a:hover {
     color: var(--accent-2);
 }
 
-/* Currency Converter */
+/* Currency Converter - Compacter */
 .currency-converter {
     position: sticky;
     top: 0;
@@ -45,23 +44,23 @@ a:hover {
     background: var(--card);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 1.25rem;
-    box-shadow: 0 4px 20px var(--shadow);
+    padding: 1rem;
+    box-shadow: 0 2px 15px var(--shadow);
 }
 
 .converter-content {
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
 }
 
 .converter-content h3 {
-    margin: 0 0 1.25rem 0;
+    margin: 0 0 1rem 0;
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -69,59 +68,50 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
     flex-wrap: wrap;
 }
 
 .converter-row input {
-    width: 140px;
-    padding: 0.75rem 1rem;
+    width: 120px;
+    padding: 0.6rem;
     border: 2px solid var(--border);
-    border-radius: 12px;
+    border-radius: 8px;
     background: var(--bg);
     color: var(--text);
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    transition: all 0.2s;
+    transition: border-color 0.2s;
 }
 
 .converter-row input:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
 .currency-label {
     font-weight: 700;
     color: var(--accent-2);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .converter-arrow {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--accent);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
 }
 
 .exchange-rate {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--muted);
-    font-weight: 500;
 }
 
-/* Hero Section */
+/* Hero Section - Compacter */
 .hero {
     background: url('https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-    min-height: 45vh;
+    min-height: 35vh;
     position: relative;
-    overflow: hidden;
 }
 
 .hero::before {
@@ -138,363 +128,219 @@ a:hover {
     position: relative;
     backdrop-filter: blur(2px);
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8));
-    min-height: 45vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 1rem 2rem;
+    padding: 2rem 1rem 1.5rem;
     text-align: center;
 }
 
 .hero h1 {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
     font-weight: 900;
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
     letter-spacing: -0.02em;
 }
 
 .hero p {
-    margin: 0 0 2rem;
+    margin: 0 0 1.5rem;
     color: #cbd5e1;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
-/* Navigation */
+/* Navigation - Compacter */
 .day-nav {
     position: sticky;
-    top: 100px;
+    top: 80px;
     z-index: 90;
     background: rgba(30, 41, 59, 0.95);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: 0.75rem;
     display: flex;
-    gap: 0.75rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
     justify-content: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .day-btn {
     background: var(--card);
     color: var(--text);
     border: 2px solid var(--border);
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.day-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient);
-    transition: left 0.3s ease;
-    z-index: -1;
-}
-
-.day-btn:hover::before {
-    left: 0;
 }
 
 .day-btn:hover {
+    background: var(--gradient);
     color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+    transform: translateY(-1px);
 }
 
 .day-btn.active {
     background: var(--gradient);
     color: #000;
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
 }
 
-/* Main Content */
+/* Main Content - Compacter */
 #content {
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 1.5rem 5rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
 }
 
-/* Day Cards */
+/* Day Cards - Compacter */
 .day-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 24px;
+    border-radius: 16px;
     padding: 0;
-    margin-bottom: 3rem;
-    box-shadow: 0 10px 40px var(--shadow);
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 25px var(--shadow);
     overflow: hidden;
-    transition: transform 0.3s ease;
 }
 
-.day-card:hover {
-    transform: translateY(-4px);
-}
-
-/* Day Header - Veel mooier design */
+/* Day Header - Compacter */
 .day-header {
     background: var(--gradient);
-    padding: 2.5rem 2rem;
+    padding: 1.5rem;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.day-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
 
 .day-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 900;
-    margin: 0 0 1rem;
+    margin: 0 0 0.75rem;
     color: #000;
     text-transform: capitalize;
     letter-spacing: -0.02em;
-    position: relative;
-    z-index: 1;
 }
 
-/* FIXED: Mooiere dag photos */
+/* Veel kleinere dag photos */
 .day-photos {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: center;
-    margin: 1.5rem 0 0 0;
-    position: relative;
-    z-index: 1;
+    margin: 0.75rem 0 0 0;
 }
 
 .day-photo {
-    width: 100px;
-    height: 70px;
+    width: 80px;
+    height: 50px;
     object-fit: cover;
-    border-radius: 16px;
-    border: 3px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
     flex-shrink: 0;
 }
 
 .day-photo:hover {
-    transform: scale(1.1) translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
 }
 
-/* Route Section - Modern Card Design */
+/* VEREENVOUDIGDE Route Section - alleen map link */
 .route-section {
-    background: linear-gradient(135deg, var(--bg) 0%, #1a202c 100%);
-    border: 2px solid var(--accent-2);
-    border-radius: 20px;
-    padding: 2rem;
-    margin: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.route-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient);
+    background: var(--bg);
+    border: 1px solid var(--accent-2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem;
+    text-align: center;
 }
 
 .route-section h3 {
     color: var(--accent-2);
-    margin: 0 0 2rem 0;
-    text-align: center;
-    font-size: 1.4rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.route-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.route-stat {
-    background: var(--card);
-    padding: 1.5rem;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.route-stat::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
+.route-map-link {
+    display: inline-block;
     background: var(--gradient);
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
-.route-stat:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px var(--shadow);
+.route-map-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
 }
 
-.route-stat strong {
-    color: var(--accent);
-    display: block;
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-.route-stat span {
-    color: var(--muted);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Kleine kaart */
-.route-map {
-    width: 100%;
-    height: 200px;
-    border: 2px solid var(--border);
-    border-radius: 16px;
-    background: var(--card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.map-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #475569 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    text-align: center;
-    padding: 1.5rem;
-}
-
-.map-placeholder .map-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: float 2s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-/* Activities Section - Prachtig card design */
+/* Activities Section - Compacter */
 .activities-section {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .activities-section h3 {
     color: var(--accent);
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 1.5rem 0;
     text-align: center;
-    font-size: 1.4rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-/* VOLLEDIG NIEUWE Event Cards - Modern Design */
+/* COMPACTE Event Cards */
 .events-timeline {
-    position: relative;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .event {
-    background: linear-gradient(135deg, var(--card) 0%, var(--card-hover) 100%);
+    background: var(--card-hover);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 0;
-    margin-bottom: 2rem;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
 }
 
 .event:hover {
-    transform: translateX(8px) translateY(-4px);
-    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2);
-    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.15);
 }
 
 .event-header {
     background: var(--bg);
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .event-time {
     background: var(--gradient);
     color: #000;
     font-weight: 800;
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
 }
 
 .event-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--text);
     margin: 0;
@@ -502,82 +348,47 @@ a:hover {
 }
 
 .event-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .event-description {
     color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.event-notes {
-    background: var(--bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border-left: 4px solid var(--accent-2);
-    margin: 1.5rem 0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
-.event-facts {
-    margin: 1.5rem 0;
-}
-
-.fact {
+/* SAMENGEVOEGDE notes en facts in 1 blok */
+.event-info {
     background: var(--bg);
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    margin: 0.75rem 0;
-    border-left: 3px solid var(--accent);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-2);
+    margin: 1rem 0;
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
-/* VEEL MOOIERE LINKS */
+/* Compacte links */
 .event-links {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .attraction-link, .maps-link, .website-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-}
-
-.attraction-link::before,
-.maps-link::before,
-.website-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.attraction-link:hover::before,
-.maps-link:hover::before,
-.website-link:hover::before {
-    left: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .attraction-link {
@@ -586,8 +397,8 @@ a:hover {
 }
 
 .attraction-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
 }
 
 .maps-link {
@@ -596,8 +407,8 @@ a:hover {
 }
 
 .maps-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(234, 67, 53, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(234, 67, 53, 0.3);
 }
 
 .website-link {
@@ -606,11 +417,11 @@ a:hover {
 }
 
 .website-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
-/* Modal Styles - Moderne update */
+/* Modal - Compacter en kleinere image */
 .modal {
     display: none;
     position: fixed;
@@ -620,64 +431,113 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
 }
 
 .modal-content {
     background: var(--card);
-    margin: 2% auto;
+    margin: 5% auto;
     padding: 0;
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 16px;
     width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
+    max-width: 700px;
+    max-height: 85vh;
     overflow-y: auto;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
 }
 
 .close {
     color: var(--muted);
     float: right;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    padding: 1.5rem;
+    padding: 1rem;
     cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 50%;
+    transition: color 0.2s;
 }
 
 .close:hover {
     color: var(--accent);
-    background: var(--bg);
+}
+
+.attraction-detail {
+    padding: 1.5rem;
+}
+
+/* KLEINERE attractie hero image */
+.attraction-hero {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.attraction-title {
+    font-size: 2rem;
+    color: var(--accent);
+    margin: 0 0 0.5rem 0;
+    font-weight: 800;
+}
+
+.attraction-subtitle {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+    color: var(--accent-2);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.detail-section p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.fun-fact {
+    background: var(--gradient);
+    color: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin: 1rem 0;
+    font-size: 0.95rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-
+    
     .day-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-
+    
     .event-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.75rem;
     }
-
-    .event-time {
-        align-self: flex-start;
-    }
-
+    
     .event-links {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
-
-    .route-stats {
-        grid-template-columns: 1fr;
+    
+    .day-photos {
+        flex-wrap: wrap;
     }
 }
