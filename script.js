@@ -66,6 +66,7 @@ De basiliek bevat het orgel waar Mozart speelde tijdens zijn bezoek in 1787. Ver
 // Bekende stops (approx. coords) voor mini-kaarten
 const placeCoords = {
   // Donderdag
+  airport:    [50.10620, 14.26690],
   ibis:       [50.08964, 14.43131],
   karlin:     [50.09160, 14.45340],
 
@@ -78,7 +79,6 @@ const placeCoords = {
   // Zaterdag
   castle:     [50.09000, 14.40030],
   strahov:    [50.08610, 14.38790],
-  petrin:     [50.08370, 14.39590],
   pilsnerexp: [50.08530, 14.42780],
   upavouka:   [50.08760, 14.42110],
 
@@ -364,3 +364,4 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
+
