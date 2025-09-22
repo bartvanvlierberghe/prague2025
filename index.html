@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prague Weekend 2025</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏰</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prague Weekend 2025</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏰</text></svg>">
 </head>
 <body>
-    <!-- CZK naar EUR Converter -->
-    <div id="currency-converter" class="currency-converter">
-        <div class="converter-content">
-            <h3>CZK ↔ EUR Converter</h3>
-            <div class="converter-row">
-                <input type="number" id="czk-input" placeholder="CZK bedrag" min="0" step="1">
-                <span class="currency-label">CZK</span>
-                <span class="converter-arrow">⇄</span>
-                <input type="number" id="eur-input" placeholder="EUR bedrag" min="0" step="0.01">
-                <span class="currency-label">EUR</span>
-            </div>
-            <div class="exchange-rate">Koers: 1 CZK = 0.0412 EUR</div>
-        </div>
+  <!-- CZK naar EUR Converter -->
+  <div id="currency-converter" class="currency-converter">
+    <div class="converter-content">
+      <h3>CZK ↔ EUR Converter</h3>
+      <div class="converter-row">
+        <input type="number" id="czk-input" placeholder="CZK bedrag" min="0" step="1">
+        <span class="currency-label">CZK</span>
+        <span class="converter-arrow">⇄</span>
+        <input type="number" id="eur-input" placeholder="EUR bedrag" min="0" step="0.01">
+        <span class="currency-label">EUR</span>
+      </div>
+      <div class="exchange-rate">Koers: 1 CZK = 0.0412 EUR</div>
     </div>
+  </div>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-overlay">
-            <h1>Prague Weekend</h1>
-            <p>2-5 oktober 2025</p>
-            <div class="day-nav" id="day-nav">
-                <!-- Navigation buttons worden dynamisch geladen -->
-            </div>
-        </div>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-overlay">
+      <h1>Prague Weekend</h1>
+      <p>2-5 oktober 2025</p>
+      <div class="day-nav" id="day-nav"><!-- buttons komen hier --></div>
     </div>
+  </div>
 
-    <!-- Main Content -->
-    <div id="content">
-        <!-- Content wordt hier geladen door script.js -->
+  <!-- Main Content -->
+  <div id="content"><!-- dagen + events komen hier --></div>
+
+  <!-- Attraction Details Modal -->
+  <div id="attraction-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-body"><!-- attractie details --></div>
     </div>
+  </div>
 
-    <!-- Attraction Details Modal -->
-    <div id="attraction-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modal-body">
-                <!-- Attraction details worden hier geladen -->
-            </div>
-        </div>
-    </div>
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
 
-    <script src="script.js"></script>
+  <!-- App JS (cache-busting kan toegevoegd worden) -->
+  <script src="script.js"></script>
 </body>
 </html>
