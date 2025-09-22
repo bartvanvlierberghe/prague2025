@@ -71,20 +71,24 @@ const placeCoords = {
   karlin:     [50.09160, 14.45340],
 
   // Vrijdag
+  ibis:       [50.08964, 14.43131],
   bajabikes:  [50.08855, 14.42070],
   umedvidku:  [50.08360, 14.42080],
   troja:      [50.11610, 14.41410],
   jazzdock:   [50.07650, 14.40970],
 
   // Zaterdag
+  ibis:       [50.08964, 14.43131],
   castle:     [50.09000, 14.40030],
   strahov:    [50.08610, 14.38790],
   pilsnerexp: [50.08530, 14.42780],
   upavouka:   [50.08760, 14.42110],
 
   // Zondag
+  ibis:       [50.08964, 14.43131],
   jewish:     [50.09090, 14.42080],
   oldtown:    [50.08700, 14.42000],
+  ibis:       [50.08964, 14.43131],
   airport:    [50.10620, 14.26690]
 };
 
@@ -364,4 +368,5 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
+
 
