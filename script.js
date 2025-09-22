@@ -1,4 +1,4 @@
-// script.js - Layout gefixte versie
+// script.js - Modern Card Design Version
 
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
@@ -51,7 +51,7 @@ Pinkas Synagoge bevat het indringende Holocaust Memorial met 80.000 namen van Ts
   }
 };
 
-// Route informatie per dag - ZONDER hoogtepunten
+// Route informatie per dag
 const routeData = {
   'donderdag-2-oktober': {
     totalDistance: '12 km',
@@ -81,7 +81,7 @@ function initCurrencyConverter() {
     const eurInput = document.getElementById('eur-input');
 
     if (!czkInput || !eurInput) {
-        console.warn('Currency converter elementen niet gevonden in HTML');
+        console.warn('Currency converter elementen niet gevonden');
         return;
     }
 
@@ -137,7 +137,7 @@ function showAttractionDetails(attractionKey) {
     modal.style.display = 'block';
 }
 
-// Main app initialization
+// Load itinerary data
 async function loadItinerary() {
     try {
         const res = await fetch('./itinerary.json', { cache: 'no-store' });
@@ -150,24 +150,27 @@ async function loadItinerary() {
         const container = document.getElementById('content');
         if (container) {
             container.innerHTML = `
-                <div style="text-align:center; color: var(--muted); padding: 2rem;">
-                    <h2>⚠️ Kon programma niet laden</h2>
+                <div style="text-align:center; color: var(--muted); padding: 3rem;">
+                    <h2 style="color: var(--accent);">⚠️ Kon programma niet laden</h2>
                     <p>Controleer of itinerary.json beschikbaar is.</p>
-                    <p>Error: ${err.message}</p>
+                    <p style="color: var(--muted); font-size: 0.9rem;">Error: ${err.message}</p>
                 </div>`;
         }
         return [];
     }
 }
 
-// FIXED: Kleine kaart zonder hoogtepunten
+// Create route section
 function createRouteSection(dayKey) {
     const route = routeData[dayKey];
     if (!route) return '';
 
     return `
         <div class="route-section">
-            <h3>🗺️ Route & Afstanden</h3>
+            <h3>
+                <span style="font-size: 1.2em;">🗺️</span>
+                Route & Afstanden
+            </h3>
             <div class="route-stats">
                 <div class="route-stat">
                     <strong>${route.totalDistance}</strong>
@@ -185,8 +188,8 @@ function createRouteSection(dayKey) {
             <div class="route-map">
                 <div class="map-placeholder">
                     <div class="map-icon">🗺️</div>
-                    <div>Dagelijkse route ${dayKey.split('-')[1]} ${dayKey.split('-')[2]}</div>
-                    <div style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--muted);">
+                    <div style="font-weight: 600; font-size: 1.1rem;">Dagelijkse route</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--muted);">
                         Interactieve kaart wordt binnenkort toegevoegd
                     </div>
                 </div>
@@ -195,46 +198,65 @@ function createRouteSection(dayKey) {
     `;
 }
 
-// FIXED: Betere event rendering met zichtbare links
+// VOLLEDIG NIEUWE event rendering - Modern card design
 function renderEvent(event) {
-    let linksHtml = '';
     const links = [];
 
     // Attractie link
     if (event.attractionKey) {
-        links.push(`<div class="attraction-link" onclick="showAttractionDetails('${event.attractionKey}')">📍 Meer info over deze attractie</div>`);
+        links.push(`
+            <div class="attraction-link" onclick="showAttractionDetails('${event.attractionKey}')">
+                <span>🏛️</span>
+                <span>Meer info over deze attractie</span>
+            </div>
+        `);
     }
 
     // Google Maps link
     if (event.mapsUrl) {
-        links.push(`<a href="${event.mapsUrl}" target="_blank" class="maps-link">📍 Google Maps</a>`);
+        links.push(`
+            <a href="${event.mapsUrl}" target="_blank" class="maps-link">
+                <span>📍</span>
+                <span>Google Maps</span>
+            </a>
+        `);
     }
 
     // Website link  
     if (event.siteUrl) {
-        links.push(`<a href="${event.siteUrl}" target="_blank" class="website-link">🔗 Website</a>`);
-    }
-
-    if (links.length > 0) {
-        linksHtml = `<div class="event-links">${links.join('')}</div>`;
+        links.push(`
+            <a href="${event.siteUrl}" target="_blank" class="website-link">
+                <span>🔗</span>
+                <span>Website bezoeken</span>
+            </a>
+        `);
     }
 
     return `
         <div class="event">
-            <div class="event-time">${event.time}</div>
-            <div class="event-title">${event.title}</div>
-            ${event.desc ? `<div class="event-description">${event.desc}</div>` : ''}
-            ${event.notes ? `<div class="event-notes">${event.notes.replace(/\n/g, '<br>')}</div>` : ''}
-            ${event.facts ? `
-                <div class="event-facts">
-                    ${event.facts.map(fact => `<div class="fact">${fact}</div>`).join('')}
-                </div>
-            ` : ''}
-            ${linksHtml}
+            <div class="event-header">
+                <div class="event-time">${event.time}</div>
+                <h3 class="event-title">${event.title}</h3>
+            </div>
+            <div class="event-content">
+                ${event.desc ? `<div class="event-description">${event.desc}</div>` : ''}
+                ${event.notes ? `<div class="event-notes">${event.notes.replace(/\n/g, '<br>')}</div>` : ''}
+                ${event.facts ? `
+                    <div class="event-facts">
+                        ${event.facts.map(fact => `<div class="fact">💡 ${fact}</div>`).join('')}
+                    </div>
+                ` : ''}
+                ${links.length > 0 ? `
+                    <div class="event-links">
+                        ${links.join('')}
+                    </div>
+                ` : ''}
+            </div>
         </div>
     `;
 }
 
+// Render complete day
 function renderDay(day, isActive) {
     const dayKey = day.name.toLowerCase().replace(/\s+/g, '-');
 
@@ -252,7 +274,10 @@ function renderDay(day, isActive) {
             ${createRouteSection(dayKey)}
 
             <div class="activities-section">
-                <h3>📅 Dagprogramma</h3>
+                <h3>
+                    <span style="font-size: 1.2em;">📅</span>
+                    Dagprogramma
+                </h3>
                 <div class="events-timeline">
                     ${day.events.map(event => renderEvent(event)).join('')}
                 </div>
@@ -263,7 +288,7 @@ function renderDay(day, isActive) {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('DOM content loaded, initializing app...');
+    console.log('🚀 Modern Prague app initializing...');
 
     // Initialize currency converter
     initCurrencyConverter();
@@ -271,11 +296,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Load itinerary data
     const days = await loadItinerary();
     if (days.length === 0) {
-        console.warn('Geen dagen geladen uit itinerary');
+        console.warn('⚠️ Geen dagen geladen uit itinerary');
         return;
     }
 
-    console.log(`Geladen: ${days.length} dagen`);
+    console.log(`✅ Geladen: ${days.length} dagen`);
 
     // Create navigation
     const dayNav = document.getElementById('day-nav');
@@ -320,5 +345,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         };
     }
 
-    console.log('App initialization completed');
+    console.log('✨ Modern Prague app ready!');
 });
