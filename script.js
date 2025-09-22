@@ -174,21 +174,6 @@ function createRouteSection(dayKey, dayName) {
 }
 //
 
-
-function createRouteSection(dayKey, dayName) {
-    const dayNumber = dayKey.split('-')[1];
-    const dayMonth = dayKey.split('-')[2];
-    
-    return `
-        <div class="route-section">
-            <h3>🗺️ Dagelijkse Route</h3>
-            <a href="https://www.google.com/maps" target="_blank" class="route-map-link">
-                📍 Bekijk route ${dayNumber} ${dayMonth} op kaart
-            </a>
-        </div>
-    `;
-}
-
 // SAMENGEVOEGDE event rendering - notes + facts in 1 blok
 function renderEvent(event) {
     const links = [];
@@ -340,4 +325,5 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('✨ Compact Prague app ready!');
 });
+
 
