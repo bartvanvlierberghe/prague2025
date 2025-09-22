@@ -5,7 +5,7 @@ const CZK_TO_EUR = 0.0412;
 
 // Route links per dag (multi-stop Google Maps routes)
 const routeLinks = {
-  'donderdag-2-oktober': 'https://www.google.com/maps/dir/Prague/V%C3%A1clav+Havel+Airport+Prague,+Charleroi/Ibis+Praha+Old+Town,+Prague/Karl%C3%ADn,+Prague',
+  'donderdag-2-oktober': 'https://www.google.com/maps/dir/Luchthaven+van+Praag+V%C3%A1clav+Havel+(PRG),+Aviatick%C3%A1,+Praag+6,+Tsjechi%C3%AB/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD+5,+110+00+Petrsk%C3%A1+%C4%8Dtvr%C5%A5,+Tsjechi%C3%AB/Karl%C3%ADn,+Praag+8,+Tsjechi%C3%AB/@50.101672,14.3158572,11227m/data=!3m1!1e3!4m19!4m18!1m5!1m1!1s0x470bbfa7db790dcb:0x2fad80d1aca4f6ac!2m2!1d14.2631811!2d50.101791!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94a336e7f09d:0x2600af105c20fbf1!2m2!1d14.451077!2d50.0947876?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
   'vrijdag-3-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Baja+Bikes+Prague+Old+Town/U+Medv%C3%ADdk%C5%AF,+Prague/Troja+Castle,+Prague/Jazz+Dock,+Prague',
   'zaterdag-4-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Prague+Castle/Strahov+Monastery,+Prague/Petrin+Tower,+Prague/Pilsner+Urquell+Experience,+Prague/U+Pavouka,+Prague',
   'zondag-5-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Jewish+Quarter,+Prague/Old+Town+Square,+Prague/V%C3%A1clav+Havel+Airport+Prague'
@@ -283,4 +283,5 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
+
 
