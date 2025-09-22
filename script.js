@@ -6,7 +6,7 @@ const CZK_TO_EUR = 0.0412;
 // Route links per dag (multi-stop Google Maps routes)
 const routeLinks = {
   'donderdag-2-oktober': 'https://www.google.com/maps/dir/Luchthaven+van+Praag+V%C3%A1clav+Havel+(PRG),+Aviatick%C3%A1,+Praag+6,+Tsjechi%C3%AB/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD+5,+110+00+Petrsk%C3%A1+%C4%8Dtvr%C5%A5,+Tsjechi%C3%AB/Karl%C3%ADn,+Praag+8,+Tsjechi%C3%AB/@50.101672,14.3158572,11227m/data=!3m1!1e3!4m19!4m18!1m5!1m1!1s0x470bbfa7db790dcb:0x2fad80d1aca4f6ac!2m2!1d14.2631811!2d50.101791!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94a336e7f09d:0x2600af105c20fbf1!2m2!1d14.451077!2d50.0947876?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
-  'vrijdag-3-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Baja+Bikes+Prague+Old+Town/U+Medv%C3%ADdk%C5%AF,+Prague/Troja+Castle,+Prague/Jazz+Dock,+Prague',
+  'vrijdag-3-oktober': 'https://www.google.com/maps/dir/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD+5,+110+00+Petrsk%C3%A1+%C4%8Dtvr%C5%A5,+Tsjechi%C3%AB/Michalsk%C3%A1+509%2F10,+110+00+Praag+1-Oude+Stad,+Tsjechi%C3%AB/Pivovar+U+Medv%C3%ADdk%C5%AF,+Na+Per%C5%A1t%C3%BDn%C4%9B+345+%2F7,+110+00+Star%C3%A9+M%C4%9Bsto,+Tsjechi%C3%AB/Trojsk%C3%BD+z%C3%A1mek,+U+Trojsk%C3%A9ho+z%C3%A1mku+4%2F1,+171+00+Praha+7,+Tsjechi%C3%AB/Jazz+Dock,+Jan%C3%A1%C4%8Dkovo+n%C3%A1b%C5%99.+3249%2F2,+150+00+Praha+5-Sm%C3%ADchov,+Tsjechi%C3%AB/@50.0969921,14.3989005,5614m/data=!3m2!1e3!4b1!4m32!4m31!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94ee9590a597:0x2a4318201bc7abeb!2m2!1d14.4201481!2d50.0849364!1m5!1m1!1s0x470b95aeb384b3f1:0x74f06162adc63a3d!2m2!1d14.4188172!2d50.0828866!1m5!1m1!1s0x470bead5a9a67e83:0x5ca54c1b5db2b7e0!2m2!1d14.4128739!2d50.1164556!1m5!1m1!1s0x470b94f9f5560257:0x4784f570148075bb!2m2!1d14.4083527!2d50.0773884!3e2?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
   'zaterdag-4-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Prague+Castle/Strahov+Monastery,+Prague/Petrin+Tower,+Prague/Pilsner+Urquell+Experience,+Prague/U+Pavouka,+Prague',
   'zondag-5-oktober': 'https://www.google.com/maps/dir/Ibis+Praha+Old+Town,+Prague/Jewish+Quarter,+Prague/Old+Town+Square,+Prague/V%C3%A1clav+Havel+Airport+Prague'
 };
@@ -283,5 +283,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
+
 
 
