@@ -150,6 +150,31 @@ async function loadItinerary() {
 }
 
 // VEREENVOUDIGDE route section - alleen map link
+
+// In script.js - Update deze functie:
+function createRouteSection(dayKey, dayName) {
+    const routeLinks = {
+        'donderdag-2-oktober': 'https://www.google.com/maps/dir/Prague+International+Airport+(PRG),+Aviatick%C3%A1,+Praag+6,+Tsjechi%C3%AB/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/Kas%C3%A1rna+Karl%C3%ADn,+Prvn%C3%ADho+pluku+20%2F2,+186+00+Karl%C3%ADn,+Tsjechi%C3%AB/@50.101672,14.3120151,11227m/data=!3m2!1e3!4b1!4m20!4m19!1m5!1m1!1s0x470bbfa7db790dcb:0x2fad80d1aca4f6ac!2m2!1d14.2631811!2d50.101791!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94bd05a920d1:0xb4ab62b11de22eb4!2m2!1d14.4434196!2d50.0898307!3e0?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
+        'vrijdag-3-oktober': 'https://www.google.com/maps/dir/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/Michalsk%C3%A1+509%2F10,+110+00+Star%C3%A9+M%C4%9Bsto,+Tsjechi%C3%AB/Brewery+Hotel+-+U+Medv%C3%ADdk%C5%AF,+Na+Per%C5%A1t%C3%BDn%C4%9B,+Oude+Stad,+Tsjechi%C3%AB/Trojsk%C3%A1+Zahrada,+Praag-Troja,+Tsjechi%C3%AB/U+Pavouka,+Celetn%C3%A1,+Oude+Stad,+Tsjechi%C3%AB/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/@50.0997232,14.4023597,5614m/data=!3m2!1e3!4b1!4m38!4m37!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94ee9590a597:0x2a4318201bc7abeb!2m2!1d14.4201481!2d50.0849364!1m5!1m1!1s0x470b9554ab78a7dd:0xb379038496eeae8a!2m2!1d14.4188224!2d50.0828785!1m5!1m1!1s0x470beb2472cae27f:0x7723c41456dcc812!2m2!1d14.4124873!2d50.1154773!1m5!1m1!1s0x470b94ebbee2e15f:0x53bd6b35932dbb32!2m2!1d14.4246097!2d50.0872288!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!3e2?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D', 
+        'zaterdag-4-oktober': 'https://www.google.com/maps/dir/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/Praagse+burcht,+Hrad%C4%8Dany,+Praag+1,+Tsjechi%C3%AB/Lore+Malastrana,+Thunovsk%C3%A1,+Praag+1-Mal%C3%A1+Strana,+Tsjechi%C3%AB/Strahov+Monastery,+Strahovsk%C3%A9+n%C3%A1dvo%C5%99%C3%AD,+Praag+1-Strahov,+Tsjechi%C3%AB/Pilsner+Urquell:+The+Original+Beer+Experience,+28.+%C5%99%C3%ADjna,+Praag+1-M%C5%AFstek,+Tsjechi%C3%AB/U+Pavouka,+Celetn%C3%A1,+110+00+Oude+Stad,+Tsjechi%C3%AB/@50.0881254,14.3989187,2808m/data=!3m2!1e3!4b1!4m38!4m37!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b951e6c24b7c3:0x2acf3c88af12259f!2m2!1d14.4016165!2d50.0910966!1m5!1m1!1s0x470b9523060cffd1:0xe43f36ab70ea66c3!2m2!1d14.4022064!2d50.089174!1m5!1m1!1s0x470b936721e269bb:0xcf35623df3761af0!2m2!1d14.3892515!2d50.0861478!1m5!1m1!1s0x470b952cd0e25975:0x31ea3ec483aef58e!2m2!1d14.4228199!2d50.0840614!1m5!1m1!1s0x470b94ebbee2e15f:0x53bd6b35932dbb32!2m2!1d14.4246097!2d50.0872288!3e2?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D',
+        'zondag-5-oktober': 'https://www.google.com/maps/dir/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/Joods+Museum,+Maiselova+15,+110+00+Josefov,+Tsjechi%C3%AB/Starom%C4%9Bstsk%C3%A1+radnice,+Starom%C4%9Bstsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD,+Oude+Stad,+Tsjechi%C3%AB/ibis+Praha+Old+Town,+Na+Po%C5%99%C3%AD%C4%8D%C3%AD,+Praag+1-Nieuwe+Stad,+Tsjechi%C3%AB/Luchthaven+van+Praag+V%C3%A1clav+Havel+(PRG),+Aviatick%C3%A1,+Praag+6,+Tsjechi%C3%AB/@50.1093699,14.3058329,11225m/data=!3m2!1e3!4b1!4m32!4m31!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470b94e9cb977ca7:0x15e6eb1d992e036a!2m2!1d14.4182812!2d50.0895956!1m5!1m1!1s0x470b94e930b83655:0xb03c01703d568d5!2m2!1d14.4206645!2d50.0870903!1m5!1m1!1s0x470b94eab3b25893:0x7e2b090ba1b24310!2m2!1d14.4308817!2d50.0893534!1m5!1m1!1s0x470bbfa7db790dcb:0x2fad80d1aca4f6ac!2m2!1d14.2631811!2d50.101791!3e2?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D'
+    };
+    
+    const dayNumber = dayKey.split('-')[1];
+    const dayMonth = dayKey.split('-')[2];
+    
+    return `
+        <div class="route-section">
+            <h3>🗺️ Dagelijkse Route</h3>
+            <a href="${routeLinks[dayKey]}" target="_blank" class="route-map-link">
+                📍 Bekijk route ${dayNumber} ${dayMonth} op kaart
+            </a>
+        </div>
+    `;
+}
+//
+
+
 function createRouteSection(dayKey, dayName) {
     const dayNumber = dayKey.split('-')[1];
     const dayMonth = dayKey.split('-')[2];
@@ -315,3 +340,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('✨ Compact Prague app ready!');
 });
+
