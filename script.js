@@ -94,10 +94,10 @@ const placeCoords = {
 
 // Route-stops per dag in volgorde (mini-kaart polyline)
 const routeStops = {
-  'donderdag-2-oktober': ['ibis', 'karlin'],
-  'vrijdag-3-oktober':   ['bajabikes', 'umedvidku', 'troja', 'jazzdock'],
-  'zaterdag-4-oktober':  ['castle', 'strahov', 'petrin', 'pilsnerexp', 'upavouka'],
-  'zondag-5-oktober':    ['jewish', 'oldtown', 'airport']
+  'donderdag-2-oktober': ['airport','ibis', 'karlin'],
+  'vrijdag-3-oktober':   ['ibis','bajabikes', 'umedvidku', 'troja', 'jazzdock'],
+  'zaterdag-4-oktober':  ['ibis','castle', 'strahov', 'petrin', 'pilsnerexp', 'upavouka'],
+  'zondag-5-oktober':    ['ibis','jewish', 'oldtown', 'ibis','airport']
 };
 
 // Dagnaam → stabiele key (voorkomt spaties/diacritics issues)
@@ -368,5 +368,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
   }
 });
+
 
 
