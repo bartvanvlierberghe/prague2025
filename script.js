@@ -1,9 +1,9 @@
-// script.js - Modern Card Design Version
+// script.js - Compact Modern Version
 
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
 
-// Attractie details database
+// Attractie details database - ZONDER ticket info + Strahov toegevoegd
 const attractionDetails = {
   'praagse-burcht': {
     title: 'Praagse Burcht & Sint-Vituskathedraal',
@@ -12,11 +12,11 @@ const attractionDetails = {
     history: `De Praagse Burcht werd rond 880 gesticht door Prins Bořivoj en is sindsdien het politieke centrum van Bohemen geweest. Het complex strekt zich uit over 70.000 vierkante meter en staat in het Guinness Book of Records als het grootste oude kasteel complex ter wereld.
 
 De Sint-Vituskathedraal, het spirituele hart van Tsjechië, werd begonnen in 1344 door Keizer Karel IV op de plek van een 10e-eeuwse rotonde. De bouw duurde bijna 600 jaar - van 1344 tot 1929 - onder leiding van verschillende architecten waaronder Matthias van Arras en Peter Parler.`,
+    
+    visitTips: `De beste tijd om te bezoeken is vroeg in de ochtend (8:00-9:00) of laat in de middag (16:00-17:00) voor minder drukte. De Sint-Wenceslauskapel is het spirituele hart van de kathedraal en bevat de graven van Boheemse heiligen en koningen.
 
-    visitTips: `Koop tickets online via hrad.cz om lange wachtrijen te vermijden. De beste tijd om te bezoeken is vroeg in de ochtend (8:00-9:00) of laat in de middag (16:00-17:00). Let op dat de laatste toegang 1 uur voor sluitingstijd is.
-
-Voor de kathedraal specifiek: de Sint-Wenceslauskapel is gratis toegankelijk, maar voor het koor en de koninklijke graven heb je een speciaal ticket nodig. De Kroonkamer waar de Boheemse kroonjuwelen worden bewaard is alleen op speciale gelegenheden open.`,
-
+Het kasteel heeft verschillende circuits - van de Old Royal Palace tot de Golden Lane waar Franz Kafka ooit woonde. De tuinen bieden prachtige uitzichten over de stad.`,
+    
     funFact: `De beroemde glas-in-lood ramen van Alfons Mucha in de kathedraal werden pas in 1931 voltooid - meer dan 20 jaar na Art Nouveau's hoogtijdperk. Mucha werkte er 6 jaar aan en weigerde betaling, omdat hij het als zijn "geschenk aan de natie" beschouwde.`
   },
 
@@ -27,11 +27,11 @@ Voor de kathedraal specifiek: de Sint-Wenceslauskapel is gratis toegankelijk, ma
     history: `Kasteel Troja werd gebouwd tussen 1679-1691 voor Graaf Wenzel Adalbert van Sternberg, geïnspireerd door Romeinse villa's die hij tijdens zijn Italiëreis had bezichtigd. Het ontwerp is van Jean Baptiste Mathey, een Franse architect die ook het Paleis Buquoy (nu Franse ambassade) ontwierp.
 
 Het kasteel is gebouwd in vroeg-barokke stijl met invloeden uit de Franse en Italiaanse architectuur. De centrale hal met aangrenzende salons weerspiegelt de typische indeling van een Romeinse villa suburbana.`,
-
-    visitTips: `Bereikbaar via tram 17 tot halte Trojská, daarna 10 minuten lopen. Het kasteel is eigendom van de stad Praag en herbergt 19e-eeuwse Tsjechische kunstcollecties. Bezoek de tuinen gratis, maar voor het interieur betaal je toegang.
+    
+    visitTips: `Bereikbaar via tram 17 tot halte Trojská, daarna 10 minuten lopen. Het kasteel herbergt 19e-eeuwse Tsjechische kunstcollecties van Prague City Gallery. De tuinen zijn gratis toegankelijk en perfect voor wandelingen.
 
 Beste fototijd is in de late namiddag wanneer de zon de rode bakstenen gevel prachtig belicht. In de zomer zijn er regelmatig klassieke concerten in de tuinen.`,
-
+    
     funFact: `De monumentale buitentrap is versierd met 28 sculpturen van Georg en Paul Heermann uit Dresden, die de strijd tussen goden en titanen uitbeelden. De centrale as van de tuin wijst precies naar de torens van de Sint-Vituskathedraal in de Praagse Burcht - een bewuste symbolische verbinding tussen kerk en staat.`
   },
 
@@ -42,36 +42,28 @@ Beste fototijd is in de late namiddag wanneer de zon de rode bakstenen gevel pra
     history: `De Joodse wijk Josefov werd in 1850 genoemd naar Keizer Jozef II, die in 1781 de Tolerantie-edicten uitvaardigde die de situatie van Joden verbeterden. De wijk huisvest de Oude-Nieuwe Synagoge (1270), Europa's oudst actieve synagoge, en zes andere historische synagogen.
 
 De Oude Joodse Begraafplaats (15e-18e eeuw) is een van de oudst overlevende Joodse begraafplaatsen ter wereld. Door ruimtegebrek liggen er twaalf lagen begraven met meer dan 12.000 zichtbare grafstenen op slechts 0,1 hectare.`,
+    
+    visitTips: `De wijk bevat zes synagogen, elk met hun eigen verhaal - van de gotische Oude-Nieuwe tot de prachtige Spaanse Synagoge in Moorse stijl. De Pinkas Synagoge bevat het indringende Holocaust Memorial met 80.000 namen van Tsjechische Joodse slachtoffers.
 
-    visitTips: `Koop combitickets via jewishmuseum.cz - dit geeft toegang tot alle synagogen en de begraafplaats. Let op: tickets sluiten 30 minuten voor sluitingstijd. Vrijdagmiddag en zaterdag gesloten vanwege sabbat.
-
-Pinkas Synagoge bevat het indringende Holocaust Memorial met 80.000 namen van Tsjechische Joodse slachtoffers. Respecteer de ernst van deze plek en vermijd luidruchtig gedrag.`,
-
-    funFact: `Franz Kafka werd geboren op slechts 300 meter van de Oude Joodse Begraafplaats en woonde zijn hele leven binnen een straal van enkele blokken van Josefov. Het graf van Rabbi Löw, de legendarische schepper van de Golem, is het meest bezochte graf - bezoekers leggen traditioneel steentjes neer voor geluk.`
-  }
-};
-
-// Route informatie per dag
-const routeData = {
-  'donderdag-2-oktober': {
-    totalDistance: '12 km',
-    walkingTime: '2,5 uur',
-    transportTime: '1 uur'
+Franz Kafka's geboortehuis staat op slechts 300 meter van de Oude Joodse Begraafplaats. Respecteer de ernst van deze historische plek en vermijd luidruchtig gedrag.`,
+    
+    funFact: `Het graf van Rabbi Löw, de legendarische schepper van de Golem, is het meest bezochte graf op de begraafplaats. Bezoekers leggen traditioneel steentjes neer voor geluk. De legende zegt dat de Golem nog steeds verborgen ligt op de zolder van de Oude-Nieuwe Synagoge.`
   },
-  'vrijdag-3-oktober': {
-    totalDistance: '15 km',
-    walkingTime: '3 uur',
-    transportTime: '45 min'
-  },
-  'zaterdag-4-oktober': {
-    totalDistance: '18 km',
-    walkingTime: '4,5 uur',
-    transportTime: '1 uur'
-  },
-  'zondag-5-oktober': {
-    totalDistance: '8 km',
-    walkingTime: '2 uur',
-    transportTime: '45 min'
+
+  // NIEUWE attractie toegevoegd
+  'strahov-klooster': {
+    title: 'Strahovský Klášter',
+    subtitle: 'Premonstratenzerklooster met wereldberoemde bibliotheek',
+    image: 'https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=800&auto=format&fit=crop',
+    history: `Het Strahov Klooster werd gesticht in 1143 door Jindřich Zdík, de bisschop van Olomouc, en koning Vladislav II. Het is een van de oudste Premonstratenzerklooster ter wereld. De naam "Strahov" komt van het Tsjechische woord "strahovat" (wacht houden), omdat hier ooit wachters stonden die de weg naar de Praagse Burcht bewaakten.
+
+Het klooster heeft een turbulente geschiedenis doorgemaakt - verwoest door brand in 1258, geplunderd door Hussieten in 1420, en later door Zweedse troepen tijdens de Dertigjarige Oorlog. In de 17e en 18e eeuw werd het herbouwd in barokke stijl.`,
+    
+    visitTips: `Het klooster is beroemd om zijn twee prachtige bibliotheekzalen: de barokke Theologische Zaal (1679) en de classicistische Filosofische Zaal (1797). De bibliotheek bevat meer dan 200.000 boeken, waaronder manuscripten uit de 9e eeuw.
+
+De basiliek bevat het orgel waar Mozart speelde tijdens zijn bezoek in 1787. Vergeet niet het "Cabinet of Curiosities" te bezoeken met natuurhistorische verzamelingen, inclusief de resten van een uitgestorven dodo.`,
+    
+    funFact: `In de Theologische Zaal staat een uniek "boekenwiel" uit 1679 - een draaibaar rek waarmee monniken meerdere boeken tegelijk konden raadplegen zonder ze vast te houden. Het wiel draait zodanig dat de boeken altijd in dezelfde hoek blijven staan. De zaal bevat ook een hele muur met verschillende edities van de Bijbel in vele talen.`
   }
 };
 
@@ -79,18 +71,18 @@ const routeData = {
 function initCurrencyConverter() {
     const czkInput = document.getElementById('czk-input');
     const eurInput = document.getElementById('eur-input');
-
+    
     if (!czkInput || !eurInput) {
         console.warn('Currency converter elementen niet gevonden');
         return;
     }
-
+    
     czkInput.addEventListener('input', function() {
         const czk = parseFloat(this.value) || 0;
         const eur = (czk * CZK_TO_EUR).toFixed(2);
         eurInput.value = eur > 0 ? eur : '';
     });
-
+    
     eurInput.addEventListener('input', function() {
         const eur = parseFloat(this.value) || 0;
         const czk = Math.round(eur / CZK_TO_EUR);
@@ -103,37 +95,34 @@ function showAttractionDetails(attractionKey) {
     const modal = document.getElementById('attraction-modal');
     const modalBody = document.getElementById('modal-body');
     const attraction = attractionDetails[attractionKey];
-
+    
     if (!attraction || !modal || !modalBody) {
         console.warn('Modal elementen of attractie data niet gevonden');
         return;
     }
-
+    
     modalBody.innerHTML = `
         <div class="attraction-detail">
             <img src="${attraction.image}" alt="${attraction.title}" class="attraction-hero">
             <h1 class="attraction-title">${attraction.title}</h1>
             <p class="attraction-subtitle">${attraction.subtitle}</p>
-
+            
             <div class="detail-section">
                 <h3>Geschiedenis</h3>
                 <p>${attraction.history}</p>
             </div>
-
+            
             <div class="detail-section">
                 <h3>Bezoektips</h3>
-                <div class="highlight-box">
-                    <h4>Belangrijk om te weten:</h4>
-                    <p>${attraction.visitTips}</p>
-                </div>
+                <p>${attraction.visitTips}</p>
             </div>
-
+            
             <div class="fun-fact">
                 <strong>💡 Leuk feitje:</strong> ${attraction.funFact}
             </div>
         </div>
     `;
-
+    
     modal.style.display = 'block';
 }
 
@@ -142,7 +131,7 @@ async function loadItinerary() {
     try {
         const res = await fetch('./itinerary.json', { cache: 'no-store' });
         if (!res.ok) throw new Error('Kon itinerary.json niet laden (' + res.status + ')');
-
+        
         const data = await res.json();
         return data.days || [];
     } catch (err) {
@@ -150,7 +139,7 @@ async function loadItinerary() {
         const container = document.getElementById('content');
         if (container) {
             container.innerHTML = `
-                <div style="text-align:center; color: var(--muted); padding: 3rem;">
+                <div style="text-align:center; color: var(--muted); padding: 2rem;">
                     <h2 style="color: var(--accent);">⚠️ Kon programma niet laden</h2>
                     <p>Controleer of itinerary.json beschikbaar is.</p>
                     <p style="color: var(--muted); font-size: 0.9rem;">Error: ${err.message}</p>
@@ -160,78 +149,65 @@ async function loadItinerary() {
     }
 }
 
-// Create route section
-function createRouteSection(dayKey) {
-    const route = routeData[dayKey];
-    if (!route) return '';
-
+// VEREENVOUDIGDE route section - alleen map link
+function createRouteSection(dayKey, dayName) {
+    const dayNumber = dayKey.split('-')[1];
+    const dayMonth = dayKey.split('-')[2];
+    
     return `
         <div class="route-section">
-            <h3>
-                <span style="font-size: 1.2em;">🗺️</span>
-                Route & Afstanden
-            </h3>
-            <div class="route-stats">
-                <div class="route-stat">
-                    <strong>${route.totalDistance}</strong>
-                    <span>Totale afstand</span>
-                </div>
-                <div class="route-stat">
-                    <strong>${route.walkingTime}</strong>
-                    <span>Looptijd</span>
-                </div>
-                <div class="route-stat">
-                    <strong>${route.transportTime}</strong>
-                    <span>Reistijd</span>
-                </div>
-            </div>
-            <div class="route-map">
-                <div class="map-placeholder">
-                    <div class="map-icon">🗺️</div>
-                    <div style="font-weight: 600; font-size: 1.1rem;">Dagelijkse route</div>
-                    <div style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--muted);">
-                        Interactieve kaart wordt binnenkort toegevoegd
-                    </div>
-                </div>
-            </div>
+            <h3>🗺️ Dagelijkse Route</h3>
+            <a href="https://www.google.com/maps" target="_blank" class="route-map-link">
+                📍 Bekijk route ${dayNumber} ${dayMonth} op kaart
+            </a>
         </div>
     `;
 }
 
-// VOLLEDIG NIEUWE event rendering - Modern card design
+// SAMENGEVOEGDE event rendering - notes + facts in 1 blok
 function renderEvent(event) {
     const links = [];
-
+    
     // Attractie link
     if (event.attractionKey) {
         links.push(`
             <div class="attraction-link" onclick="showAttractionDetails('${event.attractionKey}')">
                 <span>🏛️</span>
-                <span>Meer info over deze attractie</span>
+                <span>Meer info</span>
             </div>
         `);
     }
-
+    
     // Google Maps link
     if (event.mapsUrl) {
         links.push(`
             <a href="${event.mapsUrl}" target="_blank" class="maps-link">
                 <span>📍</span>
-                <span>Google Maps</span>
+                <span>Locatie</span>
             </a>
         `);
     }
-
+    
     // Website link  
     if (event.siteUrl) {
         links.push(`
             <a href="${event.siteUrl}" target="_blank" class="website-link">
                 <span>🔗</span>
-                <span>Website bezoeken</span>
+                <span>Website</span>
             </a>
         `);
     }
-
+    
+    // Samengevoegde info blok
+    let infoContent = '';
+    if (event.notes) {
+        infoContent += event.notes.replace(/\\n/g, '<br>');
+    }
+    if (event.facts) {
+        if (infoContent) infoContent += '<br><br>';
+        infoContent += '<strong>Interessant:</strong><br>• ' + event.facts.join('<br>• ');
+    }
+    
     return `
         <div class="event">
             <div class="event-header">
@@ -240,12 +216,7 @@ function renderEvent(event) {
             </div>
             <div class="event-content">
                 ${event.desc ? `<div class="event-description">${event.desc}</div>` : ''}
-                ${event.notes ? `<div class="event-notes">${event.notes.replace(/\n/g, '<br>')}</div>` : ''}
-                ${event.facts ? `
-                    <div class="event-facts">
-                        ${event.facts.map(fact => `<div class="fact">💡 ${fact}</div>`).join('')}
-                    </div>
-                ` : ''}
+                ${infoContent ? `<div class="event-info">${infoContent}</div>` : ''}
                 ${links.length > 0 ? `
                     <div class="event-links">
                         ${links.join('')}
@@ -258,8 +229,8 @@ function renderEvent(event) {
 
 // Render complete day
 function renderDay(day, isActive) {
-    const dayKey = day.name.toLowerCase().replace(/\s+/g, '-');
-
+    const dayKey = day.name.toLowerCase().replace(/\\s+/g, '-');
+    
     return `
         <div class="day-card" style="display: ${isActive ? 'block' : 'none'};" data-day="${dayKey}">
             <div class="day-header">
@@ -270,14 +241,11 @@ function renderDay(day, isActive) {
                     </div>
                 ` : ''}
             </div>
-
-            ${createRouteSection(dayKey)}
-
+            
+            ${createRouteSection(dayKey, day.name)}
+            
             <div class="activities-section">
-                <h3>
-                    <span style="font-size: 1.2em;">📅</span>
-                    Dagprogramma
-                </h3>
+                <h3>📅 Dagprogramma</h3>
                 <div class="events-timeline">
                     ${day.events.map(event => renderEvent(event)).join('')}
                 </div>
@@ -288,20 +256,20 @@ function renderDay(day, isActive) {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('🚀 Modern Prague app initializing...');
-
+    console.log('🚀 Compact Prague app initializing...');
+    
     // Initialize currency converter
     initCurrencyConverter();
-
+    
     // Load itinerary data
     const days = await loadItinerary();
     if (days.length === 0) {
         console.warn('⚠️ Geen dagen geladen uit itinerary');
         return;
     }
-
+    
     console.log(`✅ Geladen: ${days.length} dagen`);
-
+    
     // Create navigation
     const dayNav = document.getElementById('day-nav');
     if (dayNav) {
@@ -311,39 +279,39 @@ document.addEventListener('DOMContentLoaded', async function() {
             </button>`
         ).join('');
     }
-
+    
     // Create content
     const content = document.getElementById('content');
     if (content) {
         content.innerHTML = days.map((day, index) => renderDay(day, index === 0)).join('');
     }
-
+    
     // Add navigation listeners
     document.querySelectorAll('.day-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const dayIndex = parseInt(this.dataset.day);
-
+            
             // Update active button
             document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-
+            
             // Show/hide day cards
             document.querySelectorAll('.day-card').forEach((card, index) => {
                 card.style.display = index === dayIndex ? 'block' : 'none';
             });
         });
     });
-
+    
     // Modal close functionality
     const modal = document.getElementById('attraction-modal');
     const closeBtn = document.querySelector('.close');
-
+    
     if (modal && closeBtn) {
         closeBtn.onclick = () => modal.style.display = 'none';
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = 'none';
         };
     }
-
-    console.log('✨ Modern Prague app ready!');
+    
+    console.log('✨ Compact Prague app ready!');
 });
