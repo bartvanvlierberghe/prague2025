@@ -1,29 +1,55 @@
 <!-- index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Praag Weekendgids</title>
-  <meta name="description" content="Compacte weekendgids voor Praag met dagplanning, links en foto's." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prague Weekend 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏰</text></svg>">
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1>Praag Weekendgids</h1>
-      <p>Overzicht per dag met tijden, locaties, links en foto’s</p>
-      <nav id="day-nav" class="day-nav"></nav>
+    <!-- CZK naar EUR Converter -->
+    <div id="currency-converter" class="currency-converter">
+        <div class="converter-content">
+            <h3>CZK ↔ EUR Converter</h3>
+            <div class="converter-row">
+                <input type="number" id="czk-input" placeholder="CZK bedrag" min="0" step="1">
+                <span class="currency-label">CZK</span>
+                <span class="converter-arrow">⇄</span>
+                <input type="number" id="eur-input" placeholder="EUR bedrag" min="0" step="0.01">
+                <span class="currency-label">EUR</span>
+            </div>
+            <div class="exchange-rate">Koers: 1 CZK = 0.0412 EUR</div>
+        </div>
     </div>
-  </header>
 
-  <main id="content" class="container"></main>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-overlay">
+            <h1>Prague Weekend</h1>
+            <p>2-5 oktober 2025</p>
+            <div class="day-nav" id="day-nav">
+                <!-- Navigation buttons worden dynamisch geladen -->
+            </div>
+        </div>
+    </div>
 
-  <footer class="footer">
-    <p>Data uit CSV • Aanpasbaar via data/itinerary.json • Hostbaar op GitHub Pages</p>
-  </footer>
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Content wordt hier geladen door script.js -->
+    </div>
 
-  <script src="script.js"></script>
+    <!-- Attraction Details Modal -->
+    <div id="attraction-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Attraction details worden hier geladen -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
