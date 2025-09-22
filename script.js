@@ -1,4 +1,4 @@
-// script.js - Compact Modern Version
+// script.js - Compact Modern Version v7 
 
 // CZK naar EUR wisselkoers (September 2025)
 const CZK_TO_EUR = 0.0412;
@@ -323,3 +323,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('✨ Compact Prague app ready!');
 });
+
