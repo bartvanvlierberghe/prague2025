@@ -1,0 +1,35 @@
+{
+  "days": [
+    {
+      "name": "zaterdag 4 oktober",
+      "events": [
+        {
+          "time": "09:00-12:00",
+          "title": "Praagse Burcht & Sint-Vituskathedraal",
+          "desc": "Grootste oude kasteel complex ter wereld met gotische kathedraal",
+          "attractionKey": "praagse-burcht",
+          "notes": "Tickets online via hrad.cz\nVroege toegang om drukte te vermijden"
+        },
+        {
+          "time": "14:30-16:00",
+          "title": "Troja Kasteel & Tuinen",
+          "desc": "Barok paleis met spectaculaire beeldentrap",
+          "attractionKey": "troja-kasteel",
+          "notes": "Tram 17 tot Trojská\nFoto's bij gouden uur voor beste licht"
+        }
+      ]
+    },
+    {
+      "name": "zondag 5 oktober", 
+      "events": [
+        {
+          "time": "10:00-12:00",
+          "title": "Joodse Wijk Tour",
+          "desc": "Synagogen, Holocaust Memorial en Oude Begraafplaats",
+          "attractionKey": "joodse-wijk",
+          "notes": "Combiticket via jewishmuseum.cz\nRespectvolle kleding vereist"
+        }
+      ]
+    }
+  ]
+}
