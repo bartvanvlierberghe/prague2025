@@ -150,8 +150,6 @@ async function loadItinerary() {
 }
 
 // VEREENVOUDIGDE route section - alleen map link
-
-// VERVANG deze functie in je script-3.js (rond lijn 216):
 function createRouteSection(dayKey, dayName) {
     // Definieer de route links BINNEN de functie
     const routeLinks = {
@@ -327,6 +325,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     console.log('✨ Compact Prague app ready!');
 });
+
 
 
 
