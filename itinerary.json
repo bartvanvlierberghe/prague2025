@@ -101,12 +101,12 @@
         { 
           "time": "19:30-21:00", 
           "title": "Diner bij Botel Admiral", 
-          "notes": "Celetná 597/17, 110 00 Praha 1",
+          "notes": "tussen de Vyšehrad en Palackého brug",
           "facts": [
             "Botel Admiral is een drijvend hotel (een botel) in Praag, gelegen op de rivier de Moldau tussen de Vyšehrad en Palackého brug. Het hotel werd gebouwd in 1971 en heeft sindsdien een volledige reconstructie ondergaan om zijn oude stijl en glorie te herwinnen"
           ],
-          "siteUrl": "https://upavouka.com",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kr%C4%8Dma%20U%20Pavouka%20Celetn%C3%A1%20597/17%20Praha"
+          "siteUrl": "https://www.admiral-botel.cz/",
+          "mapsUrl": "https://maps.app.goo.gl/nGTfJ7g6KMQshQcA7"
         },
         { 
           "time": "21:30-23:00", 
@@ -265,4 +265,5 @@
     }
   ]
 }
+
 
