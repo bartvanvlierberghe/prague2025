@@ -103,7 +103,7 @@
           "title": "Diner bij Botel Admiral", 
           "notes": "tussen de Vyšehrad en Palackého brug",
           "facts": [
-            "Botel Admiral is een drijvend hotel (een botel) in Praag, gelegen op de rivier de Moldau tussen de Vyšehrad en Palackého brug. Het hotel werd gebouwd in 1971 en heeft sindsdien een volledige reconstructie ondergaan om zijn oude stijl en glorie te herwinnen"
+            "Botel Admiral is een drijvend hotel (een botel) in Praag. Het hotel werd gebouwd in 1971 en heeft sindsdien een volledige reconstructie ondergaan om zijn oude stijl en glorie te herwinnen"
           ],
           "siteUrl": "https://www.admiral-botel.cz/",
           "mapsUrl": "https://maps.app.goo.gl/nGTfJ7g6KMQshQcA7"
@@ -264,6 +264,7 @@
     }
   ]
 }
+
 
 
 
