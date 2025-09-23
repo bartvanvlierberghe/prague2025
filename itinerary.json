@@ -89,7 +89,7 @@
           "title": "Troja Kasteel bezoeken", 
           "desc": "Vroeg-barokke residentie (1679–1691) met iconische tuintrap en beeldengroep.",
           "attractionKey": "troja-kasteel",
-          "notes": "Tram 17 tot Trojská, daarna 10 min lopen",
+          "notes": "verder cruisen met de fiets",
           "facts": [
             "Architect: Jean Baptiste Mathey; Italiaanse invloeden",
             "Tuintrap met titanen (Heermann)",
@@ -100,11 +100,10 @@
         },
         { 
           "time": "19:30-21:00", 
-          "title": "Diner bij Tavern U Pavouka", 
+          "title": "Diner bij Botel Admiral", 
           "notes": "Celetná 597/17, 110 00 Praha 1",
-          "desc": "Middeleeuwse tavernesfeer met 5-gangen diner en 'all you can drink'; shows met zwaardvechters, jongleurs en dans.",
           "facts": [
-            "Dagelijkse shows met vaste tijdstippen"
+            "Botel Admiral is een drijvend hotel (een botel) in Praag, gelegen op de rivier de Moldau tussen de Vyšehrad en Palackého brug. Het hotel werd gebouwd in 1971 en heeft sindsdien een volledige reconstructie ondergaan om zijn oude stijl en glorie te herwinnen"
           ],
           "siteUrl": "https://upavouka.com",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kr%C4%8Dma%20U%20Pavouka%20Celetn%C3%A1%20597/17%20Praha"
@@ -266,3 +265,4 @@
     }
   ]
 }
+
