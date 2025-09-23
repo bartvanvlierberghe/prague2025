@@ -218,7 +218,7 @@
           "title": "Gegidste tour door oude stad, joodse wijk en joodse begraafplaats", 
           "desc": "Meerdere synagogen en de Oude Joodse Begraafplaats met combiticket.",
           "attractionKey": "joodse-wijk",
-          "notes": "Duur +- 2u\nBegraafplaats en bezoek synagoge",
+          "notes": "",
           "facts": [
             "omvat o.a. Maisel-, Pinkas- en Spaanse synagoge",
             "Begraafplaats maakt deel uit van de route",
@@ -264,6 +264,7 @@
     }
   ]
 }
+
 
 
 
