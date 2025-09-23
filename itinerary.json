@@ -220,7 +220,7 @@
           "attractionKey": "joodse-wijk",
           "notes": "Duur +- 2u\nBegraafplaats en bezoek synagoge",
           "facts": [
-            "Combiticket omvat o.a. Maisel-, Pinkas- en Spaanse synagoge",
+            "omvat o.a. Maisel-, Pinkas- en Spaanse synagoge",
             "Begraafplaats maakt deel uit van de route",
             "Verkoop sluit 30 min voor sluiting"
           ],
@@ -233,7 +233,6 @@
           "notes": "Staroměstské náměstí 19, 110 00 Praha 1",
           "desc": "Traditionele Tsjechische keuken op het Oude Stadsplein met panorama op de Astronomische Klok.",
           "facts": [
-            "Dagelijks open 09:00–01:00",
             "Bekend om goulashsoep in broodkom",
             "Uitzicht op de beroemde astronomische klok"
           ],
@@ -265,5 +264,6 @@
     }
   ]
 }
+
 
 
