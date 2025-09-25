@@ -138,7 +138,7 @@
           "title": "Bezoek aan de Praagse Burcht (Pražský hrad)", 
           "desc": "UNESCO-site en groot kasteelcomplex met romaanse en gotische lagen sinds ca. 880.",
           "attractionKey": "praagse-burcht",
-          "notes": "Online reservering aanbevolen voor snellere toegang",
+          "notes": "",
           "facts": [
             "Vaak genoemd als grootste 'ancient castle'",
             "Sint-Vituskathedraal en paleizen op het terrein",
@@ -263,6 +263,7 @@
     }
   ]
 }
+
 
 
 
